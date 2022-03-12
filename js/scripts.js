@@ -67,10 +67,10 @@ let pokemonList = [{
 for (let i=0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 1) {
     // the console will say "This pokemon is pretty large!"
-    document.write(pokemonList[i].name + '(height : ' + pokemonList[i].height +')' + 'This pokemon is pretty large!')
+    document.write(pokemonList[i].name + ' (height : ' + pokemonList[i].height + ')' + ' This pokemon is pretty large!')
   }
   else {
     // the console will say nothing about the specific pokemon if it does not meet the requirements.
-    document.write(pokemonList[i].name + '(height : ' + pokemonList[i].height +') <br>')
+    document.write(pokemonList[i].name + ' (height : ' + pokemonList[i].height + ') <br>')
   }
 }
