@@ -73,6 +73,7 @@ let pokemonRepository = (function() {
 
   function add(pokemon) {
     pokemonList.push(pokemon);
+    pokemonList.addv(typeof(object));
   }
 
   function getAll() {
