@@ -1,3 +1,4 @@
+
 let pokemonList = [{
   name: 'Mudkip',
   //height is in meters
@@ -7,7 +8,6 @@ let pokemonList = [{
   type: ['water'],
   dexEntryNumber: 258,
   description: 'To alert it, the fin on its head senses the flow of water. It has the strength to heft boulders.',
-  //How would I add their strengths & resistances? Will it be stacked inside each other like another array? Or could I just have an array of strings like I did for its type?
   strongAgainst: {
     type0: ['grass 2x'],
     type1: ['electric 2x']
@@ -64,7 +64,15 @@ let pokemonList = [{
   }
 }];
 
-for (let i=0; i < pokemonList.length; i++) {
+//Part 1: forEach() Loops, Exercise 1.5
+pokemonList.forEach(function(pokemon) {
+  document.write(pokemon.name + ' (height : ' + pokemon.height + ')');
+  document.write('<p/>');
+});
+
+
+//Pre-exercise 1.5
+/* for (let i=0; i < pokemonList.length; i++) {
   if (pokemonList[i].height > 1) {
     // the console will say "This pokemon is pretty large!"
     document.write(pokemonList[i].name + ' (height : ' + pokemonList[i].height + ')' + ' This pokemon is pretty large!')
@@ -73,4 +81,4 @@ for (let i=0; i < pokemonList.length; i++) {
     // the console will say nothing about the specific pokemon if it does not meet the requirements.
     document.write(pokemonList[i].name + ' (height : ' + pokemonList[i].height + ') <br>')
   }
-}
+} */
