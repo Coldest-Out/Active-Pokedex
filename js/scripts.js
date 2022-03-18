@@ -65,12 +65,6 @@ let pokemonRepository = (function() {
     }
   }];
 
-  //Part 1: forEach() Loops, Exercise 1.5
-  pokemonList.forEach(function(pokemon) {
-    document.write(pokemon.name + ' (height : ' + pokemon.height + ')');
-    document.write('<p/>');
-  });
-
   function add(pokemon) {
     pokemonList.push(pokemon);
   }
@@ -89,6 +83,12 @@ let pokemonRepository = (function() {
     getAll: getAll
   };
   })();
+
+  //Part 1: forEach() Loops, Exercise 1.5
+  pokemonRepository.getAll().forEach(function(pokemon) {
+    document.write(pokemon.name + ' (height : ' + pokemon.height + ')');
+    document.write('<p/>');
+  });
 
 console.log(pokemonRepository.getAll());
 pokemonRepository.add({ name: 'Torchic'});
