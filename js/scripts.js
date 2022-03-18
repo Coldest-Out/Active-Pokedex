@@ -73,17 +73,16 @@ let pokemonRepository = (function() {
 
   function add(pokemon) {
     pokemonList.push(pokemon);
-    /* pokemonList.addv(typeof(object)); */
   }
 
   function getAll() {
     return pokemonList;
   }
 
-  //unsure if code below is proper for bonus task
-  /* function addv(object) {
+  //Bonus Task?
+  function addv(object) {
     pokemonList.typeof(object);
-  } */
+  }
 
   return {
     add: add,
