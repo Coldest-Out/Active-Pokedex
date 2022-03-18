@@ -73,12 +73,17 @@ let pokemonRepository = (function() {
 
   function add(pokemon) {
     pokemonList.push(pokemon);
-    pokemonList.addv(typeof(object));
+    /* pokemonList.addv(typeof(object)); */
   }
 
   function getAll() {
     return pokemonList;
   }
+
+  //unsure if code below is proper for bonus task
+  /* function addv(object) {
+    pokemonList.typeof(object);
+  } */
 
   return {
     add: add,
@@ -87,5 +92,5 @@ let pokemonRepository = (function() {
   })();
 
 console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Torchic', height: 0.4, weight: 2.5});
+pokemonRepository.add({ name: 'Torchic'});
 console.log(pokemonRepository.getAll());
