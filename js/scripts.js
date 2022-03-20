@@ -78,16 +78,44 @@ let pokemonRepository = (function() {
     pokemonList.typeof(object);
   }
 
+//Adding elements to HTML file
+  function addListItem(pokemon) {
+    //selecting current <ul> in the HTML doc labeled "pokemon-list"
+    let pokemonList = document.querySelector(".pokemon-list");
+    //creates the list
+    let listPokemon = document.createElement("li");
+    //creates button
+    let button = document.createElement("button");
+    //makes the button have the pokemons name inside
+    button.innerText = pokemon.name;
+    //gives button the class "button-class"
+    button.classList.add("button-class");
+    //pushes the button to the HTML
+    listPokemon.appendChild(button);
+    //pushes the list to the HTML
+    pokemonList.appendChild(listPokemon);
+    //adds an event to the button, records upon click
+    button.addEventListener('click', function(event) {
+      showDetails(pokemon);
+    })
+  }
+
+//Shows the pokemon that were clicked on
+  function showDetails(pokemon) {
+    console.log(pokemon.name);
+  }
+
   return {
     add: add,
-    getAll: getAll
+    getAll: getAll,
+    addListItem: addListItem,
+    showDetails: showDetails
   };
   })();
 
-  //Part 1: forEach() Loops, Exercise 1.5
+  //getAll loop
   pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write(pokemon.name + ' (height : ' + pokemon.height + ')');
-    document.write('<p/>');
+    pokemonRepository.addListItem(pokemon);
   });
 
 console.log(pokemonRepository.getAll());
