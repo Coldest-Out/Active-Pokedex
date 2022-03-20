@@ -1,0 +1,54 @@
+/* Containing the content for all platforms */
+.container {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+@media all and (max-width: 500px) {
+  .container {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+@media all and (min-width: 500px) and (max-width: 750px) {
+  .container {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+@media all and (max-width: 750px) {
+  .container {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+/* Button Styling for individual Pokemon */
+.button-class {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: 2px solid blue;
+}
+
+/* Removes dot from list */
+.pokemon-list {
+  list-style-type: none;
+}
+
+/* Center the div
+.pokedex {
+
+} */
