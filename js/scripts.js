@@ -1,69 +1,39 @@
 //IIFE
 let pokemonRepository = (function() {
-  let pokemonList = [{
-    name: 'Mudkip',
-    //height is in meters
-    height: 0.4,
-    //weight is in kg
-    weight: 7.5,
-    type: ['water'],
-    dexEntryNumber: 258,
-    description: 'To alert it, the fin on its head senses the flow of water. It has the strength to heft boulders.',
-    strongAgainst: {
-      type0: ['grass 2x'],
-      type1: ['electric 2x']
-    },
-    resistances: {
-      type0: ['steel 0.5x'],
-      type1: ['fire 0.5x'],
-      type2: ['water 0.5x'],
-      type3: ['ice 0.5x']
-    }
-  },
+  let pokemonList = [];
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
-  {
-    name: 'Marshtomp',
-    //height is in meters
-    height: 0.7,
-    //weight is in kg
-    weight: 28,
-    type: ['water', 'ground'],
-    dexEntryNumber: 259,
-    description: 'Its sturdy legs give it sure footing, even in mud. It burrows into dirt to sleep',
-    strongAgainst: {
-      type0: ['grass 4x'],
-      type1: ['electric 2x']
-    },
-    resistances: {
-      type0: ['steel 0.5x'],
-      type1: ['fire 0.5x'],
-      type2: ['rock 0.5x'],
-      type3: ['ground 0.5x'],
-      type4: ['poison 0.5x']
-    }
-  },
+  //Loads the list of 150 pokemon from the apiUrl
+  function loadList() {
+    return fetch(apiUrl).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      json.results.forEach(function (item) {
+        let pokemon = {
+          name: item.name,
+          detailsUrl: item.url
+        };
+        add(pokemon);
+      });
+    }).catch(function (e) {
+      console.error(e);
+    })
+  }
 
-  {
-    name: 'Swampert',
-    //height is in meters
-    height: 1.5,
-    //weight is in kg
-    weight: 81.9,
-    type: ['water', 'ground'],
-    dexEntryNumber: 300,
-    description: 'It can swim while towing a large ship. It bashes down foes with a swing of its thick arms.',
-    strongAgainst: {
-      type0: ['grass 4x'],
-      type1: ['electric 2x']
-    },
-    resistances: {
-      type0: ['steel 0.5x'],
-      type1: ['fire 0.5x'],
-      type2: ['rock 0.5x'],
-      type3: ['ground 0.5x'],
-      type4: ['poison 0.5x']
+  //Loads pokemons details from the apiUrl
+    function loadDetails(item) {
+      let url = item.detailsUrl;
+      return fetch(url).then(function (response) {
+        return response.json();
+      }).then(function (details) {
+        // Now we add the details to the item
+        item.imageUrl = details.sprites.front_default;
+        item.height = details.height;
+        item.types = details.types;
+      }).catch(function (e) {
+        console.error(e);
+      });
     }
-  }];
 
   function add(pokemon) {
     pokemonList.push(pokemon);
@@ -74,9 +44,9 @@ let pokemonRepository = (function() {
   }
 
   //Bonus Task?
-  function addv(object) {
-    pokemonList.typeof(object);
-  }
+  //function addv(object) {
+    //pokemonList.typeof(object);
+  //}
 
 //Adding elements to HTML file
   function addListItem(pokemon) {
@@ -102,22 +72,23 @@ let pokemonRepository = (function() {
 
 //Shows the pokemon that were clicked on
   function showDetails(pokemon) {
-    console.log(pokemon.name);
-  }
+    loadDetails(pokemon).then(function() {
+      console.log(pokemon);
+    });
+}
 
   return {
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    showDetails: showDetails
+    showDetails: showDetails,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
   })();
 
-  //getAll loop
+pokemonRepository.loadList().then(function() {
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
   });
-
-console.log(pokemonRepository.getAll());
-pokemonRepository.add({ name: 'Torchic'});
-console.log(pokemonRepository.getAll());
+});
