@@ -2,6 +2,7 @@
 let pokemonRepository = (function() {
   let pokemonList = [];
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+//  let modalContainer = document.querySelector('#modal-container');
 
   //Loads the list of 150 pokemon from the apiUrl
   function loadList() {
@@ -30,7 +31,11 @@ let pokemonRepository = (function() {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
         item.types = details.types;
-        item.weight = detail.weight;
+        item.weight = details.weight;
+        item.abilities = [];
+        for (let i = 0; i < details.abilities.length; i++) {
+          pokemon.abilities.push(details.abilities[i].ability.name);
+        }
       }).catch(function (e) {
         console.error(e);
       });
@@ -66,51 +71,38 @@ let pokemonRepository = (function() {
     })
   }
 
-  //Creating Modal for Pokedex
-  function showModal(name, height, weight, imageUrl){
-    let modalContainer = document.querySelector(".modal-container");
-      document.querySelector('.modal-title').innerText = name;
-
-      let description = 'Height: '+ height +'cm' + ' <p>Weight: ' + weight + 'kg'
-      document.querySelector('.modal-text').innerHTML = description;
-      document.querySelector('.modal-img').setAttribute('src', imageUrl);
-      console.log(imageUrl);
-
-      //created and allows users to close modal by using the close button
-      let closeButton = document.querySelector(".modal-close");
-      closeButton.addEventListener("click", hideModal);
-
-      //Allows users to exit the modal by using ESC
-      window.addEventListener('keydown', (e) => {
-      console.log(e.key);
-      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible'))
-      hideModal();
-      });
-
-      //Allows users to exit the modal by clicking outside the box
-      modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-
-      modalContainer.classList.add("is-visible");
-    }
-
-    function hideModal() {
-      let modalContainer = document.querySelector('.modal-container');
-      modalContainer.classList.remove('is-visible');
-    }
-
 //Shows the pokemon that were clicked on
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
-      showModal(pokemon.name, pokemon.height, pokemon.types, pokemon.imageUrl);
+  //    showModal(pokemon.name, pokemon.height, pokemon.types, pokemon.imageUrl);
     });
 }
+
+//  function showModal(name, height, type, imageUrl) {
+  //  let modalContainer = document.querySelector('.modal-container');
+//    document.querySelector('.modal_title').innerText = name;
+
+  //  let description = 'Height: ' + height +'cm' + '<br>type: ' + type;
+  //  document.querySelector('.modal_text').innerHTML = description;
+  //  document.querySelector('.modal_img').setAttribute('src', imageUrl);
+  //  console.log(imageUrl);
+
+  //  let closeButton = document.querySelector('.modal-close');
+  //  closeButton.addEventListener('click,' hideModal);
+
+  //  window.addEventListener('keydown', (e) => {
+    //  console.log(e.key);
+  //    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible'))
+  //    hideModal();
+  //  });
+
+    modalContainer.classList.add('is-visible');
+}
+
+  //  function hideModal() {
+  //    let modalContainer = document.querySelector('.modal-container');
+  //    modalContainer.classList.remove('is-visible');
+//    }
 
   return {
     add: add,
@@ -119,8 +111,8 @@ let pokemonRepository = (function() {
     showDetails: showDetails,
     loadList: loadList,
     loadDetails: loadDetails,
-    showModal: showModal,
-    hideModal: hideModal
+  //  showModal: showModal,
+  //  hideModal: hideModal
   };
   })();
 
