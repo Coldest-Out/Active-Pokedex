@@ -21,9 +21,9 @@
 }
 
 body {
-    font-family: 'Fredoka', sans-serif;
+    font-family: 'Staatliches', cursive;
     font-weight: 400;
-    font-size: var(--extra-small-font);
+    font-size: var(--small-font);
     line-height: 1.8;
 }
 
@@ -92,6 +92,8 @@ h5 {
 }
 
 .text {
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   text-align: center;
   justify-content: center;
@@ -138,19 +140,28 @@ h5 {
 /* Button Styling for individual Pokemon */
 .button-class {
   background-color: red;
-  border: none;
+  border: 0.16em solid rgba(255, 255, 255, 0);
   color: white;
-  padding: 16px 32px;
+  padding: 0.5em 1em;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
+  margin: 0 0.1em 0.1em 0;
   transition-duration: 0.4s;
   cursor: pointer;
   background-color: white;
   color: black;
   border: 2px solid black;
+  border-radius: 2em;
+  transition: all 0.2s;
+}
+
+.button-class:hover {
+  border-color: rgb(30, 66, 167);
+  background-color: rgb(223, 184, 12);
+  color: rgb(37, 39, 201);
+  font-weigth: 700;
 }
 
 /* MODAL STYLING */
@@ -193,6 +204,7 @@ h5 {
 .modal__img {
   width: auto;
   height: auto;
+
 }
 
 .modal-close {
