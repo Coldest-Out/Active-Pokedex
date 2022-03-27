@@ -1,63 +1,136 @@
-/* Containing the content for all platforms */
+/*__________Default Variables__________*/
+:root {
+  --primary-color: #332F2E;
+  --secondary-color: lightgreen;
+  --big-font: clamp(2rem, 10vw, 2.8rem);
+  --medium-font: clamp(1.7rem, 6vw, 2.4rem);
+  --small-font: clamp(1.5rem, 4.5vw, 1.8rem);
+  --extra-small-font: clamp(1.4rem, 3vw, 1.6rem);
+  --h5-small-font: clamp(1.2rem, 2vw, 1.4rem);
+  --padding-small: 1rem;
+  --padding-medium: 2rem;
+  --padding-large: 2rem;
+  --padding-extra-large: 3rem;
+  --box-shadow: rgba(50, 50, 93, 0.25) 0 2px 5px -1px, rgba(0, 0, 0, 0.3) 0 1px 3px -1px;
+}
+
+/*__________Default Styling__________*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 400;
+    font-size: var(--extra-small-font);
+    line-height: 1.8;
+}
+
+h1 {
+    font-size: var(--big-font);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--medium-font);
+    font-weight: 400;
+}
+
+h3 {
+    font-size: var(--small-font);
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+h4 {
+    font-size: var(--extra-small-font);
+    font-weight: 300;
+    text-transform: capitalize;
+}
+
+h5 {
+    font-size: var(--h5-small-font);
+    font-weight: 300;
+}
+
 .container {
-  margin: 0 auto;
-  max-width: 100%;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
 }
 
-.pokemon-list {
-  display: grid;
-  grid-template-columns: auto;
-  text-align: center;
-  justify-content: center;
-  grid-gap: 20px;
-}
+/*__________Navigation Bar Styling__________*/
 
-.main-pokedex {
+.navbar {
   display: flex;
-  justify-content: center;
   text-align: center;
-  margin: 0 auto;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.navbar-img {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: auto;
+  padding: 2rem;
   max-width: 100%;
+  border-style: none;
+  justify-content: center;
+}
+
+/*__________Pokemon List Styling__________*/
+
+.flex {
+  display: flex;
+  text-align: center;
+}
+
+.text {
+  padding: 1rem;
+  text-align: center;
+  justify-content: center;
 }
 
 .grid {
-  display: flex;
-  max-width: 100%;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+  grid-gap: 15px;
 }
 
+.pokemon-list {
+  list-style-type: none;
+}
+
+.button-class {
+  text-transform: uppercase;
+}
+
+/*__________Default Containment__________*/
+
 @media all and (max-width: 500px) {
-  .container {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-  .pokemon-list {
-    grid-template-columns: 1fr;
-  }
   .grid {
+    display: grid;
     grid-template-columns: 1fr;
   }
 }
 
 @media all and (min-width: 500px) and (max-width: 750px) {
-  .container {
-    margin: 0 auto;
-    max-width: 100%;
-  }
-  .pokemon-list {
-    grid-template-columns: 1fr 1fr;
-  }
   .grid {
+    display: grid;
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media all and (max-width: 750px) {
-  .container {
-    margin: 0 auto;
-    max-width: 100%;
-  }
+@media all and (min-width: 750px) {
   .grid {
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
@@ -78,45 +151,6 @@
   background-color: white;
   color: black;
   border: 2px solid black;
-}
-
-/* Removes dot from list */
-.pokemon-list {
-  list-style-type: none;
-}
-
-.pokedex-container {
-  display: block;
-  text-align: center;
-}
-
-.main-pokedex {
-  display: block;
-  text-align: center;
-  border: 1px solid black;
-}
-
-.pokemon-list {
-  display: grid;
-  text-align: center;
-  grid-template-columns: 1fr 1fr 1fr;
-}
-
-/* HEADER STYLING */
-.header {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  flex-grow: 1;
-  text-align: center;
-  margin: 0 auto;
-  max-width: 700px;
-}
-
-.header-img {
-  display: inline-block;
-  text-align: center;
-  padding: 20px 20px;
 }
 
 /* MODAL STYLING */

@@ -50,7 +50,7 @@ let pokemonRepository = (function() {
     let pokemonList = document.querySelector(".pokemon-list");
     //creates the list
     let listPokemon = document.createElement("li");
-    listPokemon.classList.add("grid-items");
+    listPokemon.classList.add("pokemon-li");
     //creates button
     let button = document.createElement("button");
     //makes the button have the pokemons name inside

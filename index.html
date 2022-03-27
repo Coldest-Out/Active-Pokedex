@@ -8,16 +8,27 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css">
   <title>Pokedex App</title>
 </head>
-<body class="container">
+<body>
 
-<header class="header">
-  <img class="header-img" src="img/png/pokemon_logo.png" alt="This is the Pokemon logo.">
+<!--NAVIGATION BAR, WILL INCLUDE PORTFOLIO AND API LINK-->
+<nav class="navbar">
+  <img class="navbar-img" src="img/png/pokemon_logo.png" alt="This is the Pokemon Logo">
+</nav>
+
+<header class="container">
+  <div class="details flex">
+    <div class="text">
+      Check out the list of Pokemon below, just click on any of them below for their details!
+    </div>
+  </div>
+
+  <div class="pokedex-container">
+      <ul class="pokemon-list container grid"></ul>
+      <!-- <img src="img/png/ultraball.png" alt="This is an image of an Ultraball"> -->
+  </div>
 </header>
 
-<div class="pokedex-container grid">
-  <h1 class="main-pokedex">Check out the list of Pokemon below!</h1>
-    <ul class="pokemon-list"></ul>
-
+<!-- MODAL SHOWING INDIVIDUAL POKEMON UPON CLICK-->
   <div class="modal-container">
     <div class="modal">
       <button class="modal-close">Close</button>
@@ -26,7 +37,6 @@
         <p class="modal-text"></p>
     </div>
   </div>
-</div>
 
 <script type="text/javascript" src="js/promise-polyfill.js"></script>
 <script type="text/javascript" src="js/fetch.umd.js"></script>
