@@ -68,11 +68,11 @@ let pokemonRepository = (function() {
   }
 
   //Creating Modal for Pokedex
-  function showModal(name, height, weight, imageUrl){
+  function showModal(name, height, imageUrl){
     let modalContainer = document.querySelector(".modal-container");
       document.querySelector('.modal-title').innerText = name;
 
-      let description = 'Height: '+ height +'cm' + ' <p>Weight: ' + weight + 'kg'
+      let description = 'Height: '+ height +'cm'
       document.querySelector('.modal-text').innerHTML = description;
       document.querySelector('.modal-img').setAttribute('src', imageUrl);
       console.log(imageUrl);
@@ -109,7 +109,7 @@ let pokemonRepository = (function() {
 //Shows the pokemon that were clicked on
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
-      showModal(pokemon.name, pokemon.height, pokemon.weight, pokemon.imageUrl);
+      showModal(pokemon.name, pokemon.height, pokemon.imageUrl);
     });
 }
 
