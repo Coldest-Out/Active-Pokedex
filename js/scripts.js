@@ -50,6 +50,7 @@ let pokemonRepository = (function() {
     let pokemonList = document.querySelector(".pokemon-list");
     //creates the list
     let listPokemon = document.createElement("li");
+    listPokemon.classList.add("grid-items");
     //creates button
     let button = document.createElement("button");
     //makes the button have the pokemons name inside
@@ -108,7 +109,7 @@ let pokemonRepository = (function() {
 //Shows the pokemon that were clicked on
   function showDetails(pokemon) {
     loadDetails(pokemon).then(function() {
-      showModal(pokemon.name, pokemon.height, pokemon.types, pokemon.imageUrl);
+      showModal(pokemon.name, pokemon.height, pokemon.weight, pokemon.imageUrl);
     });
 }
 
