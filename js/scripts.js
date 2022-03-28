@@ -53,6 +53,12 @@ let pokemonRepository = (function() {
     listPokemon.classList.add("pokemon-li");
     //creates button
     let button = document.createElement("button");
+
+    //creating img element
+//    let ultraballImg = document.createElement('img');
+//    ultraballImg.setAttribute('class', 'ultraball-img');
+//    ultraballImg.setAttribute('src', 'img/png/ultraball_95x95.png');
+
     //makes the button have the pokemons name inside
     button.innerText = pokemon.name;
     //gives button the class "button-class"
