@@ -31,7 +31,7 @@ let pokemonRepository = (function() {
         item.imageUrlBack = details.sprites.back_default;
         item.height = details.height;
         item.types = details.types;
-        item.weight = detail.weight;
+        item.weight = details.weight;
         item.abilities = [];
         for (let i = 0; i < details.abilities.length; i++) {
           item.abilities.push(details.abilities[i].ability.name);
@@ -78,12 +78,12 @@ let pokemonRepository = (function() {
   //Shows the pokemon that were clicked on
     function showDetails(pokemon) {
       loadDetails(pokemon).then(function() {
-        showModal(pokemon);
+        showModal(pokemon.name, pokemon.height, pokemon.weight, pokemon.abilities, pokemon.imgUrl, pokemon.imageUrlBack);
       });
   }
 
   //Creating Modal for Pokedex
-  function showModal(item) {
+  function showModal(pokemon) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
     let modalHeader = $(".modal-header");
@@ -96,7 +96,7 @@ let pokemonRepository = (function() {
     let nameElement = $("<h1>" + item.name + "</h1>");
     //Creating img in the modal
     let imageElementFront = $('<img class="modal-img" style="width:50%">');
-    imageElementFront.attr("src", item.imgUrl);
+    imageElementFront.attr("src", item.imageUrl);
     let imageElementBack = $('<img class="modal-img" style="width:50%">');
     imageElementBack.attr("src", item.imageUrlBack);
 
