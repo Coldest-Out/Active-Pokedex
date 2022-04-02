@@ -107,7 +107,7 @@ let pokemonRepository = (function() {
     let weightElement = $("<p>" + "Weight : " + pokemon.weight + '-kg' + "</p>");
 
     //Creating element for type in modal
-    let typesElement = $("<p>" + "Types : " + pokemon.types + "</p>");
+    let typesElement = $('<p>' + 'Types: ' + pokemon.types.map(i => i.type.name).join(', ') + '<p>');
 
     //Creating element for abilities in modal
     let abilitiesElement = $("<p>" + "Abilities : " + pokemon.abilities + "</p>");
