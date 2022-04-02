@@ -16,7 +16,7 @@
 <body>
 
 <!--NAVIGATION BAR, WILL INCLUDE PORTFOLIO AND API LINK-->
-<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between">
+<nav class="navbar navbar-expand-sm navbar-light bg-light justify-content-between fixed-top">
   <a class="navbar-brand" href=""> <img class="navbar-img" src="img/png/pokemon_logo.png" alt=""> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -27,6 +27,11 @@
       <a class="nav-item nav-link" href="https://pokeapi.co/" target="_blank">API</a>
       <a class="nav-item nav-link" href="https://brandyn-portfolio.000webhostapp.com/" target="_blank">Portfolio</a>
     </div>
+  </div>
+  <div class="col">
+    <form class="form-inline">
+        <input class="form-control rounded" id="search-pokemon" type="search" placeholder="Search Pokemon" aria-label="Search for a Pokemon" onkeyup="pokemonRepository.findPokemon(value)"/>
+    </form>
   </div>
 </nav>
 
