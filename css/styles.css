@@ -64,12 +64,9 @@ h5 {
 }
 
 /*__________Navigation Bar Styling__________*/
-
 .navbar {
   display: flex;
-  flex-direction: column;
-  text-align: center;
-  align-items: center;
+  flex-direction: row;
   padding: 0.5rem 1rem;
   box-shadow: var(--box-shadow);
 }
@@ -79,16 +76,18 @@ h5 {
   flex-direction: column;
   width: 350px;
   height: auto;
-  padding: 2rem;
+  padding: 10px;
   max-width: 100%;
   border-style: none;
   justify-content: center;
 }
 
+/*
 .navbar-links {
   text-decoration: none;
-}
+} */
 
+/*
 .navbar-links {
   background-color: red;
   border: 0.16em solid rgba(255, 255, 255, 0);
@@ -106,20 +105,22 @@ h5 {
   border: 2px solid rgb(255,203,3);
   border-radius: 2rem;
   transition: all 0.2s;
-}
+} */
 
+/*
 .navbar-links:hover {
   border-color: rgb(30, 66, 167);
   background-color: rgb(223, 184, 12);
   color: rgb(37, 39, 201);
   font-weigth: 700;
-}
+} */
 
 /*__________Pokemon List Styling__________*/
 
 .flex {
   display: flex;
   text-align: center;
+  justify-content: space-between;
 }
 
 .text {
@@ -141,7 +142,7 @@ h5 {
   list-style-type: none;
 }
 
-.button-class {
+.btn-primary {
   text-transform: uppercase;
 }
 
@@ -184,7 +185,7 @@ h5 {
 
 
 /* Button Styling for individual Pokemon */
-.button-class {
+.btn-primary {
   background-color: red;
   border: 0.16em solid rgba(255, 255, 255, 0);
   color: white;
@@ -203,7 +204,7 @@ h5 {
   transition: all 0.2s;
 }
 
-.button-class:hover {
+.btn-primary:hover {
   border-color: rgb(30, 66, 167);
   background-color: rgb(223, 184, 12);
   color: rgb(37, 39, 201);
@@ -211,6 +212,7 @@ h5 {
 }
 
 /* MODAL STYLING */
+/*
 .modal-container {
   display: flex;
   position: fixed;
@@ -275,4 +277,4 @@ h5 {
 
 #modal-container.is-visible {
   display: block;
-}
+} */
