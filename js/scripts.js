@@ -123,7 +123,7 @@ let pokemonRepository = (function() {
     let typesElement = $('<p>' + 'Types: ' + pokemon.types.map(i => i.type.name).join(', ') + '<p>');
 
     //Creating element for abilities in modal
-    let abilitiesElement = $("<p>" + "Abilities : " + pokemon.abilities + "</p>");
+    let abilitiesElement = $("<p>" + "Abilities : " + pokemon.abilities.join(', ') + "</p>");
 
     modalTitle.append(nameElement);
     modalBody.append(imageElementFront);
