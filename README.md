@@ -9,7 +9,7 @@ This project was an achievement and a project created as a part of Career Foundr
 - User interactive.
 - Displays list of Pokemon that displays some of their details.
 
-**How?:**
+**How?**
 - HTML
 - CSS
 - JavaScript
